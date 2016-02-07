@@ -4,7 +4,28 @@
 
 #include <GL\glew.h>
 #include <GL\glut.h>
+#include <string>
 #include <iostream>
+#include <fstream>
+
+const char *readShaderFromFile(const char *filePath) {
+	std::string content;
+	std::ifstream fStream(filePath);
+
+	if (!fStream.is_open()) {
+		std::cerr << "Could not read file: " << filePath << ". Are you sure it exists??" << std::endl;
+		return "";
+	}
+
+	std::string tmpLine = "";
+	while (!fStream.eof()) {
+		std::getline(fStream, tmpLine);
+		content.append(tmpLine + "\n");
+	}
+
+	fStream.close();
+	return content.c_str();
+}
 
 
 void initGL() {
@@ -28,6 +49,15 @@ void initGL() {
 	glBufferData(GL_ARRAY_BUFFER, sizeof(positions), positions, GL_STATIC_DRAW);
 
 	//TODO: Init vertex/fragment shaders
+	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+	GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+
+	const char *vertShaderString = readShaderFromFile("simple.vert");
+	const char *fragShaderString = readShaderFromFile("simple.frag");
+
+	glShaderSource(vertexShader, 1, &vertShaderString, NULL);
+	glShaderSource(fragmentShader, 1, &fragShaderString, NULL);
+
 	//TODO: Init texture to hold tracing results(image)
 	//TODO: 
 }
