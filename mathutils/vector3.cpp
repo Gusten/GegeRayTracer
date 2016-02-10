@@ -9,6 +9,12 @@ vector3::vector3() {
 	y = 0;
 	z = 0;
 }
+// Initialize a vector with x,y,z values copied from given vector a.
+vector3::vector3(const vector3& a) {
+	this->x = a.x;
+	this->y = a.y;
+	this->z = a.z;
+}
 // Initialize a vector with given parameters
 vector3::vector3(float nx, float ny, float nz) {
 	x = nx;
