@@ -5,15 +5,16 @@
 // where R_o is the ray origin(vector), R_d is the normalized
 // ray direction vector and t is the distance variable.
 
-#include "..\mathutils\vector3.h"
+#include "..\mathutils\Vector3.h"
 
-class ray
+class Ray
 {
 public:
-	vector3 origin;
-	vector3 direction;
+	Vector3 origin;
+	Vector3 direction;
 
-	ray(const vector3& o, const vector3& d);
+	Ray(const Vector3& d);
+	Ray(const Vector3& o, const Vector3& d);
 
 };
 
