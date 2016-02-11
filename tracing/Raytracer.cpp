@@ -2,12 +2,12 @@
 #include "Ray.h"
 #include "../mathutils/Vector3.h"
 
-raytracer::raytracer() {
+Raytracer::Raytracer() {
 
 }
 
 // Trace all primary rays through the image plane with given width and height
-void raytracer::tracePrimaryRays(int width, int height) {
+void Raytracer::tracePrimaryRays(int width, int height) {
 
 	Vector3 currDir;
 
