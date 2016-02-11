@@ -22,6 +22,8 @@ public:
 	Vector3 operator+(const Vector3& b);
 	Vector3 operator-(const Vector3& b);
 
+	Vector3 operator*(const float& t);
+
 	// Useful vector functions
 	float dotProduct(const Vector3& b);
 	Vector3 crossProduct(const Vector3& b);

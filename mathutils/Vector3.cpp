@@ -59,6 +59,17 @@ Vector3 Vector3::operator-(const Vector3& b) {
 	return c;
 }
 
+// Multiply a vector a with a scalar t in the form of a(x, y, z) * t = (x*t, y*t, z*t)
+Vector3 Vector3::operator*(const float& t) {
+	Vector3 c = Vector3();
+
+	c.x = this->x * t;
+	c.y = this->y * t;
+	c.z = this->z * t;
+
+	return c;
+}
+
 // Vector functions
 // Calculates the dot/scalar product of vector a and b in the form of: dotProduct = a.x*b.x + a.y*b.y + a.z*b.z
 float Vector3::dotProduct(const Vector3& b) {
